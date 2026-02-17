@@ -1370,7 +1370,7 @@ end
     all(t -> t.desc[:state] == completed, ar.tasks)
 end
 
-function wait_map(ar::AsyncResult)
+function wait(ar::AsyncResult)
     _waitspec(ar.tasks, false)
 end
 
@@ -1398,7 +1398,7 @@ Applies `func` to each element of the zipped `iterables` asynchronously
 
 # Returns
 An `AsyncResult` object containing the submitted tasks
-Use `ready()`, `wait_map()` and `get()` to monitor or retrieve results
+Use `ready()`, `wait()` and `get()` to monitor or/and retrieve results
 
 # Example
 res = map_async((x,y) -> x+y, [1,2,3], [4,5,6])
@@ -1453,7 +1453,7 @@ Applies `func` to each element of `iterable` by unpacking its contents as argume
 
 # Returns
 An `AsyncResult` object containing the submitted tasks
-Use `ready()`, `wait_map()` and`get()` to monitor or/and retrieve results
+Use `ready()`, `wait()` and `get()` to monitor or/and retrieve results
 
 # Example
 data = [(1,2), (3,4), (5,6)]
