@@ -20,7 +20,7 @@ const worker_id = () -> runtime.ctx[].rank * runtime.TORC_NUM_WORKERS + runtime.
 
 enable_stealing() = (runtime._enable_stealing())
 disable_stealing() = (runtime._disable_stealing())
-set_scheduling_policy(policy::Symbol, weights::Union{Vector{Int}, Nothing}) = (runtime._set_scheduling_policy(policy, weights))
+set_scheduling_policy(policy::Symbol, weights::Union{Vector{Int}, Nothing} = nothing) = (runtime._set_scheduling_policy(policy, weights))
 
 """
     start(func::Function; MPI_finalize::Bool = true)
