@@ -1,0 +1,7 @@
+[deps]
+ConcurrentCollections = "5060bff5-0b44-40c5-b522-fcd3ca5cecdd"
+Crayons = "a8cc5b0e-0ffa-5ad4-8c14-923d3ee1735f"
+DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
+MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
+Match = "7eb4fadd-790c-5f42-8a69-bfa0b872bfbf"
+ThreadPinning = "811555cd-349b-4f26-b7bc-1f208b848042"
