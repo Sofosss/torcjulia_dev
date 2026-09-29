@@ -19,8 +19,7 @@ Scenario:
 Run: mpiexecjl -n 4 julia --project=/path/to/torcjulia/project --threads 3 priority_work_stealing.jl
 """
 
-include(joinpath(@__DIR__, "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 using Crayons, Random
 
@@ -69,4 +68,4 @@ function main()
     println(Crayon(foreground = :magenta)("all tasks completed ✓"))
 end
 
-torcjulia.start(main)
+torcjulia.init(main)

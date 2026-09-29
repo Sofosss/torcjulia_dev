@@ -11,8 +11,7 @@ Key parameters:
 Run: mpiexecjl -n 4 julia --project=/path/to/torcjulia/project --threads 3 map_reduce.jl
 """
 
-include(joinpath(@__DIR__, "..", "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 
 @inline function work(x::Int)::Int
@@ -41,4 +40,4 @@ function main()
     println("elapsed time: $(round(elapsed, digits = 5)) seconds")
 end
 
-torcjulia.start(main)
+torcjulia.init(main)

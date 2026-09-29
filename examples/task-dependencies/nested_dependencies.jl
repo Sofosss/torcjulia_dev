@@ -29,8 +29,7 @@ Expected execution flow:
 Run: mpiexecjl -n 2 julia --project=/path/to/torcjulia/project --threads 3 nested_dependencies.jl
 """
 
-include(joinpath(@__DIR__, "..", "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 
 function task_1()
@@ -114,4 +113,4 @@ function main()
     torcjulia.wait()
 end
 
-torcjulia.start(main)
+torcjulia.init(main)

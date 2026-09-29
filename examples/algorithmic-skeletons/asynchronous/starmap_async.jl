@@ -11,8 +11,7 @@ The key difference from `map_async`:
 Run: mpiexecjl -n 2 julia --project=/path/to/torcjulia/project --threads 3 starmap_async.jl
 """
 
-include(joinpath(@__DIR__, "..", "..", "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 
 function work(x::Int, y::Int; scale::Float64 = 1.0, verbose::Bool = true)::Float64
@@ -69,4 +68,5 @@ function main()
 end
 
 
-torcjulia.start(main)
+
+torcjulia.init(main)

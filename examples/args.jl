@@ -15,9 +15,7 @@ Common use cases: parameter sweeps, hyperparameter tuning, and batch processing
 Run: mpiexecjl -n 2 julia --project=/path/to/torcjulia/project --threads 4 args.jl
 """
 
-include(joinpath(@__DIR__, "..", "src", "torcjulia.jl"))
-import .torcjulia
-
+using torcjulia
 
 function _work(a, b; c = 0, d = 0)
     sleep(0.1 + 0.05 * rand())
@@ -62,4 +60,4 @@ function main()
     end
 end
 
-torcjulia.start(main)
+torcjulia.init(main)

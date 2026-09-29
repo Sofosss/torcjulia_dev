@@ -15,8 +15,7 @@ exclusive scan: scan(+, [1,2,3,4]) → [0, 1, 3, 6]
 Run: mpiexecjl -n 8 julia --project=/path/to/torcjulia/project --threads 3 scan.jl
 """
 
-include(joinpath(@__DIR__, "..", "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 
 @inline function work(x::Int, y::Int)::Int
@@ -36,7 +35,7 @@ function main()
     
     expected_excl = zeros(Int64, N)
     for i in 2:N
-        expected_excl[i] = reduce((x, y) -> work(x, y), a[1:i-1])
+        expected_excl[i] = Base.reduce((x, y) -> work(x, y), a[1:i-1])
     end
     
     println("result (first 10 elements): $(result_excl[1:10])")
@@ -49,7 +48,7 @@ function main()
     
     expected_incl = similar(a, Int64)
     for i in 1:N
-        expected_incl[i] = reduce((x, y) -> work(x, y), a[1:i])
+        expected_incl[i] = Base.reduce((x, y) -> work(x, y), a[1:i])
     end
     
     println("result (first 10 elements): $(result_incl[1:10])")
@@ -57,5 +56,4 @@ function main()
     println("elapsed time: $(round(elapsed, digits = 5)) seconds")
 end
 
-
-torcjulia.start(main)
+torcjulia.init(main)

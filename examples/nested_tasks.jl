@@ -17,8 +17,7 @@ Well-suited for:
 Run: mpiexecjl -n 4 julia --project=/path/to/torcjulia/project --threads 3 nested_tasks.jl
 """
 
-include(joinpath(@__DIR__, "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 
 function fib(n::UInt64)
@@ -60,4 +59,4 @@ function main()
     println("elapsed time: $elapsed seconds")
 end
 
-torcjulia.start(main)
+torcjulia.init(main)

@@ -66,8 +66,7 @@ total_score = agg_results["total"] + sum(batch_results) + sum(work1_results)
 Run: mpiexecjl -n 2 julia --project=/path/to/torcjulia/project --threads 5 map_async.jl
 """
 
-include(joinpath(@__DIR__, "..", "..", "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 
 function fetch_data(id::Int; verbose::Bool = true)::Dict{String, Int}
@@ -159,13 +158,13 @@ function main()
     println("final result: $total_score")
 
     expected_score = aggregate(
-                        map(x -> work2(x; verbose = false),
-                            map(y -> fetch_data(y; verbose = false), data));
+                        Base.map(x -> work2(x; verbose = false),
+                            Base.map(y -> fetch_data(y; verbose = false), data));
                         verbose = false
                     )["total"] +
-                    sum(map(batch -> work_batch(batch; verbose = false), arr)) +
-                    sum(map(n -> work1(n; verbose = false), vec))
+                    sum(Base.map(batch -> work_batch(batch; verbose = false), arr)) +
+                    sum(Base.map(n -> work1(n; verbose = false), vec))
     println("expected result: $expected_score")
 end
 
-torcjulia.start(main)
+torcjulia.init(main)

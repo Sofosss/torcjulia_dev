@@ -23,8 +23,7 @@ Requirements: 2+ MPI processes, 1 worker thread per process
 Run: mpiexecjl -n 2 julia --project=/path/to/torcjulia/project --threads 2 task_pinning.jl
 """
 
-include(joinpath(@__DIR__, "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 
 function work(x)
@@ -67,4 +66,4 @@ if local_workers > 1
     exit()
 end
 
-torcjulia.start(main)
+torcjulia.init(main)

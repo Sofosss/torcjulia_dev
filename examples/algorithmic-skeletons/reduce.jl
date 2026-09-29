@@ -24,8 +24,7 @@ Vector: reduce(+, [1,2,3,4,5]) → 15
 Run: mpiexecjl -n 8 julia --project=/path/to/torcjulia/project --threads 3 reduce.jl
 """
 
-include(joinpath(@__DIR__, "..", "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 using Random
 
@@ -98,4 +97,4 @@ function main()
     println("elapsed time: $(round(elapsed, digits = 5)) seconds")
 end
 
-torcjulia.start(main)
+torcjulia.init(main)

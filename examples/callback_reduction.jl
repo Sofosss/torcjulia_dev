@@ -15,8 +15,7 @@ multiple worker threads execute callbacks concurrently
 Run: mpiexecjl -n 4 julia --project=/path/to/torcjulia/project --threads 3 callback_reduction.jl
 """
 
-include(joinpath(@__DIR__, "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 
 _sum = 0
@@ -46,4 +45,4 @@ function main()
     println("expected: $(sum(x^2 for x in 1:n))")
 end
 
-torcjulia.start(main)
+torcjulia.init(main)

@@ -18,8 +18,7 @@ Notes:
 Run: mpiexecjl -n 2 julia --project=/path/to/torcjulia/project --threads 2 dependencies.jl
 """
 
-include(joinpath(@__DIR__, "..", "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 
 function workA(x)
@@ -54,4 +53,4 @@ function main()
     println("[task C] x² + x³ = ", torcjulia.result(taskC))
 end
 
-torcjulia.start(main)
+torcjulia.init(main)

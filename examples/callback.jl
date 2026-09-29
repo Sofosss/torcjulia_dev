@@ -14,8 +14,7 @@ Tasks are assigned different callbacks based on their input value
 Run: mpiexecjl -n 2 julia --project=/path/to/torcjulia/project --threads 3 callback.jl
 """
 
-include(joinpath(@__DIR__, "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 
 function cb_1(result)
@@ -52,4 +51,4 @@ function main()
     end
 end
 
-torcjulia.start(main)
+torcjulia.init(main)

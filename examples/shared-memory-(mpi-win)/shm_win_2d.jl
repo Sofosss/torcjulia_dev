@@ -12,8 +12,7 @@ Workflow:
 Run: mpiexecjl -n 4 julia --project=/path/to/torcjulia/project --threads 2 shm_win_2d.jl
 """
 
-include(joinpath(@__DIR__, "..", "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 
 function update_row(A, row)
@@ -51,4 +50,4 @@ function main()
     println("updated 2D A: $A")
 end
 
-torcjulia.start(main)
+torcjulia.init(main)

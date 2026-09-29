@@ -12,11 +12,9 @@ Workflow:
 Run: mpiexecjl -n 4 julia --project=/path/to/torcjulia/project --threads 2 spmd_bcast_reduce.jl
 """
 
-include(joinpath(@__DIR__, "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 using MPI
-
 
 const N = 16
 const A = zeros(Int, N)
@@ -56,4 +54,4 @@ function main()
     torcjulia.spmd(reduce_task)
 end
 
-torcjulia.start(main)
+torcjulia.init(main)

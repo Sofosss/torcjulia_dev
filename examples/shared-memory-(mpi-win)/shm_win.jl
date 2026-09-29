@@ -18,8 +18,7 @@ Notes:
 Run: mpiexecjl -n 8 julia --project=/path/to/torcjulia/project --threads 2 shm_win.jl
 """
 
-include(joinpath(@__DIR__, "..", "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 
 function work(idx; A)
@@ -51,4 +50,4 @@ function main()
     println("updated A: $A")
 end
 
-torcjulia.start(main)
+torcjulia.init(main)

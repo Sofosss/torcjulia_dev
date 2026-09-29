@@ -35,8 +35,7 @@ Execution flow:
 Run: mpiexecjl -n 2 julia --project=. --threads 4 async_processing.jl
 """
 
-include(joinpath(@__DIR__, "..", "..", "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 
 function work1(a::Int, b::Int; verbose::Bool = true)::Int
@@ -99,4 +98,4 @@ function main()
     println("expected result: $expected_score")
 end
 
-torcjulia.start(main)
+torcjulia.init(main)

@@ -14,8 +14,7 @@ Key parameters:
 Run: mpiexecjl -n 4 julia --project=/path/to/torcjulia/project --threads 3 map_pairs_reduce.jl
 """
 
-include(joinpath(@__DIR__, "..", "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 
 @inline function work(x::Int, y::Int)::Float64
@@ -60,4 +59,5 @@ function main()
 end
 
 
-torcjulia.start(main)
+
+torcjulia.init(main)

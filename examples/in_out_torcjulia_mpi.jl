@@ -17,8 +17,7 @@ Key features:
 Run: mpiexecjl -n 4 julia --project=/path/to/torcjulia/project --threads 2 in_out_torcjulia_mpi.jl
 """
 
-include(joinpath(@__DIR__, "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 using MPI
 
@@ -52,7 +51,7 @@ function torc_gather()
     torcjulia.wait()
 end
 
-torcjulia.start(torc_gather; MPI_finalize = false)
+torcjulia.init(torc_gather; MPI_finalize = false)
 
 function mpi_allreduce_outside()
     local_val = _rank + 1
@@ -80,4 +79,4 @@ function torc_allreduce()
     torcjulia.wait()
 end
 
-torcjulia.start(torc_allreduce)
+torcjulia.init(torc_allreduce)

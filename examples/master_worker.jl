@@ -12,8 +12,7 @@ distributing them among the available workers in a round-robin fashion
 Run: mpiexecjl -n 2 julia --project=/path/to/torcjulia/project --threads 2 master_worker.jl
 """
 
-include(joinpath(@__DIR__, "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 
 function work(x)
@@ -48,4 +47,4 @@ function main()
 end
 
 
-torcjulia.start(main)
+torcjulia.init(main)

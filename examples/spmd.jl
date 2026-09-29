@@ -14,8 +14,7 @@ Notes:
 Run: mpiexecjl -n 4 julia --project=/path/to/torcjulia/project --threads 2 spmd.jl
 """
 
-include(joinpath(@__DIR__, "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 
 function work(; multiplier::Int)
@@ -34,4 +33,4 @@ function main()
 end
 
 
-torcjulia.start(main)
+torcjulia.init(main)

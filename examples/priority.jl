@@ -18,9 +18,7 @@ Scenario:
 Run: mpiexecjl -n 2 julia --project=/path/to/torcjulia/project --threads 2 priority.jl
 """
 
-include(joinpath(@__DIR__, "..", "src", "torcjulia.jl"))
-import .torcjulia
-
+using torcjulia
 using Crayons
 
 
@@ -54,4 +52,4 @@ function main()
     println(Crayon(foreground = :magenta)("all tasks completed ✓"))
 end
 
-torcjulia.start(main)
+torcjulia.init(main)

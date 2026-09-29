@@ -8,8 +8,7 @@ Unlike map.jl (single iterable), this example processes two iterables element-wi
 Run: mpiexecjl -n 8 julia --project=/path/to/torcjulia/project --threads 3 map2.jl
 """
 
-include(joinpath(@__DIR__, "..", "..", "src", "torcjulia.jl"))
-import .torcjulia
+using torcjulia
 
 
 @inline function work(x::Float64, y::Float64)::Float64
@@ -33,4 +32,4 @@ function main()
 end
 
 
-torcjulia.start(main)
+torcjulia.init(main)
