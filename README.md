@@ -1,4 +1,4 @@
-# torcjulia: Supporting hybrid task-based parallelism in Julia 🚀 
+# torcjulia: An MPI-based Runtime System for Asynchronous Task Parallelism in Julia  🚀 
 [![Julia](https://img.shields.io/badge/Julia-1.11-purple?logo=julia&logoColor=white)](https://julialang.org) ![HPC](https://img.shields.io/badge/High--Performance%20Computing-HPC-green)
 
 
