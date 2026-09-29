@@ -1,5 +1,5 @@
 # torcjulia: An MPI-based Runtime System for Asynchronous Task Parallelism in Julia  🚀 
-[![Julia](https://img.shields.io/badge/Julia-1.11-purple?logo=julia&logoColor=white)](https://julialang.org) ![HPC](https://img.shields.io/badge/High--Performance%20Computing-HPC-green)
+[![Julia](https://img.shields.io/badge/Julia-1.11-purple?logo=julia&logoColor=white)](https://julialang.org) ![HPC](https://img.shields.io/badge/High--Performance%20Computing-HPC-green) [![License](https://img.shields.io/badge/License-Apache--2.0-FFDEAD)](https://www.apache.org/licenses/LICENSE-2.0) 
 
 
 **torcjulia** is a **high-level**, **platform-agnostic**, and **adaptive load balancing** framework for efficient and flexible **hybrid task parallelism** in Julia. Built on top of **MPI** and **Julia's multithreading**, torcjulia supports both shared and distributed memory systems. Inspired by Python’s [concurrent.futures][concurrent-futures-link] module, its modern and intuitive API allows engineers from diverse fields (e.g., Data Science, Machine Learning) to easily leverage Julia’s parallelism, scaling seamlessly from a single workstation to clusters and supercomputers.
